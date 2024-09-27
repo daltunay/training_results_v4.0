@@ -55,7 +55,7 @@ if [[ -n "${SLURM_LOCALID-}" ]] && [[ "${SLURM_NTASKS}" -gt "${SLURM_JOB_NUM_NOD
     CMD=( 'bindpcie' ${CPU_EXCLUSIVE} ${IB_BIND} '--' ${NSYSCMD} 'python' '-u')
 else
     # interactive run on single node, no need to bind
-    CMD=( ${NSYSCMD} 'torchrun' '--nproc_per_node=8' )
+    CMD=( ${NSYSCMD} 'torchrun' '--nproc_per_node=2' )
 fi
 
 if [ "$node_rank" -eq 0 ] && [ "$local_rank" -eq 0 ]

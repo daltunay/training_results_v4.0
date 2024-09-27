@@ -4,7 +4,7 @@ defaults:
 name: megatron_gpt_peft_lora_tuning
 
 trainer:
-  devices: ${oc.decode:${oc.env:DGXNGPU,8}}
+  devices: ${oc.decode:${oc.env:DGXNGPU,2}}
   num_nodes: ${oc.decode:${oc.env:DGXNNODES,1}}
   accelerator: gpu
   precision: ${oc.decode:${oc.env:PRECISION,bf16-mixed}}
